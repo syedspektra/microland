@@ -15,6 +15,7 @@
 5. Configure Security Groups and Network ACLs to allow only the required inbound and outbound traffic between resources.
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## S2 - Deploy MySQL RDS Instance and Connect from EC2
 
@@ -31,6 +32,7 @@
 5. Connect to the EC2 instance using SSH and verify successful connectivity to the MySQL RDS endpoint.
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## S3 - Configure Auto Scaling Group with Load Balancer
 
