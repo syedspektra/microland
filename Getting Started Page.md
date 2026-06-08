@@ -18,8 +18,8 @@ Follow the steps below to get started with the lab.
 
     Alternatively, you can also find these values on the **CloudLabs** Environment tab.
 
-    ![](https://github.com/syedspektra/microland/blob/main/image/image%20(1).png)
+    ![](https://github.com/syedspektra/microland/blob/main/image/image%20(2).png)
 
 2. After signing in to the AWS Management Console, choose the region **US-EAST-1 (N. Virginia)** from the drop-down menu in the top right hand corner.
 
-    ![](https://github.com/syedspektra/microland/blob/main/image/image%20(2).png)
+    ![](https://github.com/syedspektra/microland/blob/main/image/image%20(1).png)
