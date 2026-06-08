@@ -14,7 +14,7 @@ Follow the steps below to get started with the lab.
 
     * **Password**: **<inject key="Password" enableCopy="true" />**
 
-    ![](./images/login.png)
+    ![](./image/image(1).png)
 
     Alternatively, you can also find these values on the **CloudLabs** Environment tab.
 
