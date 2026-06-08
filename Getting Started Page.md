@@ -14,7 +14,7 @@ Follow the steps below to get started with the lab.
 
     * **Password**: **<inject key="Password" enableCopy="true" />**
 
-    ![](./image/image(1).png)
+    ![](https://github.com/syedspektra/microland/blob/main/image/image.png)
 
     Alternatively, you can also find these values on the **CloudLabs** Environment tab.
 
