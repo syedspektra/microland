@@ -14,10 +14,9 @@ To meet these requirements, you will launch an Amazon EC2 instance, create a dat
 
 # Assessment Objectives
 
-This lab environment is designed to evaluate your practical skills in deploying and securing AWS database services. As part of this assessment, you will deploy an Amazon EC2 instance, configure a private Amazon RDS MySQL database, implement secure connectivity between resources, and validate database access.
+This lab environment is designed to evaluate your practical skills in deploying scalable and highly available web applications on AWS. As part of this assessment, you will configure load balancing, automated instance provisioning, and dynamic scaling using Amazon EC2 Auto Scaling and an Application Load Balancer.
 
 You are expected to follow AWS best practices and use the specified resource names to ensure successful validation.
-
 > **Note:** To ensure successful validation and consistency across all assessment tasks, you must deploy all AWS resources in **one of the following supported AWS Regions only**:
 >
 > - us-east-2 (Ohio)
@@ -26,62 +25,65 @@ You are expected to follow AWS best practices and use the specified resource nam
 
 ---
 
-## Task 1: Launch an EC2 Instance
+## Task 1: Deploy an Application Load Balancer
 
 > **Note:** Follow the specified naming conventions exactly to ensure validation works properly.
 
-1. Launch an Amazon Linux 2 EC2 instance named **Lab1-App-Server**.
-2. Use either a **t2.micro** or **t3.micro** instance type.
-3. Deploy the instance in one of the public subnets created in Scenario 1.
+1. Create an Application Load Balancer named **Lab1-ALB**.
+2. Deploy the load balancer in the public subnets created in Scenario 1.
+3. Configure an HTTP listener on port **80**.
 
+---
 ### Success Criteria
 
-- An EC2 instance named **Lab1-App-Server** exists.
-- The instance is in the **Running** state.
-- The instance type is **t2.micro** or **t3.micro**.
-
-<validation step="951a19c4-e1ce-4dff-b5df-e2f981bbc880" />
+- An Application Load Balancer named **Lab1-ALB** exists.
+- An HTTP listener is configured on port **80**.
 
 ---
+<validation step="db4abf79-5f64-40c0-a0f2-bbd26ca6c6b7" />
 
-## Task 2: Create a Database Subnet Group
+
+## Task 2: Create and Configure a Target Group
 
 > **Note:** Follow the specified naming conventions exactly to ensure validation works properly.
 
-1. Create a DB Subnet Group named **Lab1-DB-Subnet-Group**.
-2. Add only the private subnets created in Scenario 1 to the subnet group.
+1. Create a Target Group named **Lab1-TG**.
+2. Configure the target group for HTTP traffic.
+3. Associate **Lab1-TG** with the listener configured on **Lab1-ALB**.
 
 ---
 
-## Task 3: Deploy a MySQL RDS Instance
+## Task 3: Configure an Auto Scaling Group
 
 > **Note:** Follow the specified naming conventions exactly to ensure validation works properly.
 
-1. Create an Amazon RDS instance.
-2. Configure the database engine as **MySQL 8.x**.
-3. Use the instance class **db.t3.micro**.
-4. Deploy the database using **Lab1-DB-Subnet-Group**.
-5. Ensure **Public Access** is set to **Disabled**.
-6. Multi-AZ deployment is optional.
+1. Create an Auto Scaling Group named **Lab1-ASG** using **Lab1-Web-LT**.
+2. Deploy Auto Scaling instances into the private subnets created in Scenario 1.
+3. Register all instances with **Lab1-TG**.
 
+---
 ### Success Criteria
 
-- Database engine is **MySQL 8.x**.
-- Instance class is **db.t3.micro**.
-- Public accessibility is disabled.
-- The instance status is **Available**.
+- An Auto Scaling Group named **Lab1-ASG** exists.
+- Instances are deployed in private subnets.
+- Instances are registered with **Lab1-TG**.
 
-<validation step="79e50816-7960-48f0-a9e4-07188109fb78" />
+---
+<validation step="b8f83458-78bf-4c07-af9e-6dc5f25baf90" />
+
+
+## Task 4: Configure Automatic Scaling and Validate Load Balancing
+
+1. Configure **Lab1-ASG** with:
+   - Minimum Capacity: **2**
+   - Desired Capacity: **2**
+   - Maximum Capacity: **4**
+
+2. Create a scaling policy that triggers when average CPU utilization reaches **60% or higher**.
+
+3. Verify that the DNS name of **Lab1-ALB** successfully returns a web page from the Apache web servers running in the Auto Scaling Group.
 
 ---
 
-## Task 4: Configure Secure Database Access
-
-> **Note:** Follow the specified naming conventions exactly to ensure validation works properly.
-
-1. Create a security group named **Lab1-EC2-SG** for the EC2 instance.
-2. Create a security group named **Lab1-RDS-SG** for the RDS instance.
-3. Configure the security groups so that only **Lab1-App-Server** can connect to the RDS database on port **3306**.
----
 
 ## You have successfully completed the Assessment.
