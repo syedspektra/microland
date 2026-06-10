@@ -19,7 +19,9 @@ This lab environment is designed to evaluate your practical skills in deploying 
 You are expected to follow AWS best practices and use the specified resource names to ensure successful validation.
 > **Note:** To ensure successful validation and consistency across all assessment tasks, you must deploy all AWS resources in **one of the following supported AWS Regions only**:
 >
-> - us-east-2 (Ohio)
+> - us-east-2 
+> - us-west-2
+> - us-east-1
 >
 > Resources deployed in any other AWS Region may not be detected by the validation scripts and could result in assessment failures.
 
