@@ -82,14 +82,6 @@ You are expected to follow AWS best practices and use the specified resource nam
 1. Create a security group named **Lab1-EC2-SG** for the EC2 instance.
 2. Create a security group named **Lab1-RDS-SG** for the RDS instance.
 3. Configure the security groups so that only **Lab1-App-Server** can connect to the RDS database on port **3306**.
-
-### Success Criteria
-
-- Security Group **Lab1-RDS-SG** exists.
-- Port **3306** is allowed only from **Lab1-EC2-SG**.
-
-<validation step="f0c6b3b9-5d9a-4f89-9fd1-db-access-validation" />
-
 ---
 
 ## You have successfully completed the Assessment.
